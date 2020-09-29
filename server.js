@@ -1,8 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 
 // Initialize express server
 const app = express();
+
+// Load env file
+dotenv.config({ path: './config/config.env' });
+
+// Connect to database
+connectDB();
 
 // Development logging middleware
 app.use(morgan('dev'));
