@@ -7,6 +7,12 @@ const app = express();
 // Development logging middleware
 app.use(morgan('dev'));
 
+// Route files
+const logs = require('./routes/logs');
+
+// Mounting routes to URL path
+app.use('/api/logs', logs);
+
 // Declaring port
 const PORT = 5000;
 
