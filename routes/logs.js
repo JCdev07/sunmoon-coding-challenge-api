@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { getLogs } = require('../controller/logs');
+const { getLogs, createLog, deleteLog } = require('../controller/logs');
 
 // Declaring and linking routes to its corresponding controller
-router.route('/').get(getLogs);
+router.route('/').get(getLogs).post(createLog);
+
+router.route('/:id').delete(deleteLog);
 
 module.exports = router;
