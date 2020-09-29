@@ -15,6 +15,9 @@ connectDB();
 // Development logging middleware
 app.use(morgan('dev'));
 
+// Middleware
+app.use(express.json());
+
 // Route files
 const logs = require('./routes/logs');
 
