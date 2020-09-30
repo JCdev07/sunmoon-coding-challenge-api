@@ -19,7 +19,7 @@ exports.createLog = async (req, res) => {
       res.status('200').json({
          success: true,
          message: 'created',
-         data: newLog,
+         newLog: newLog,
       });
    } catch (err) {
       res.status('400').json({
