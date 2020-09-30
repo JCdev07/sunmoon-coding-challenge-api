@@ -27,7 +27,7 @@ const logs = require('./routes/logs');
 app.use('/api/logs', logs);
 
 // Declaring port
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Listen to server
 app.listen(PORT, () => {
