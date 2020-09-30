@@ -6,7 +6,7 @@ exports.getLogs = async (req, res, next) => {
    const allLogs = await Logs.find();
    res.status('200').json({
       success: true,
-      allLogs,
+      data: allLogs,
    });
 };
 
@@ -19,7 +19,7 @@ exports.createLog = async (req, res) => {
       res.status('200').json({
          success: true,
          message: 'created',
-         newLog,
+         data: newLog,
       });
    } catch (err) {
       res.status('400').json({

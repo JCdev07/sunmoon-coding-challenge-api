@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const connectDB = require('./config/db');
 
 // Initialize express server
@@ -17,6 +18,7 @@ app.use(morgan('dev'));
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Route files
 const logs = require('./routes/logs');
