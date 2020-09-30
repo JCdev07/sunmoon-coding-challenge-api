@@ -30,6 +30,26 @@ exports.createLog = async (req, res) => {
 };
 
 // @desc       delete a logs
+// @route      PUT api/logs/:id
+exports.updateLog = async (req, res, next) => {
+   try {
+      const updatedLog = await Logs.findByIdAndUpdate(req.params.id, req.body, {
+         new: true,
+      });
+      res.status('200').json({
+         success: true,
+         message: 'Log successfully updated',
+         updatedLog: updatedLog,
+      });
+   } catch (err) {
+      res.status('400').json({
+         success: false,
+         message: err.message,
+      });
+   }
+};
+
+// @desc       delete a logs
 // @route      DELETE api/logs/:id
 exports.deleteLog = async (req, res, next) => {
    try {
